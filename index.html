@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Beautiful Fiancée ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    linear-gradient(135deg,#fff0f5,#ffe4ec,#ffd6e7);
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    padding:20px;
+    position:relative;
+}
+
+/* FLOATING HEARTS */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.hearts span{
+    position:absolute;
+    bottom:-100px;
+    color:rgba(255,105,180,0.22);
+    font-size:24px;
+    animation:float 12s linear infinite;
+}
+
+.hearts span:nth-child(1){left:10%;animation-delay:0s;}
+.hearts span:nth-child(2){left:30%;animation-delay:3s;}
+.hearts span:nth-child(3){left:50%;animation-delay:1s;}
+.hearts span:nth-child(4){left:70%;animation-delay:4s;}
+.hearts span:nth-child(5){left:90%;animation-delay:2s;}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0) scale(0.7);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) scale(1.5);
+        opacity:0;
+    }
+
+}
+
+/* CARD */
+
+.wrapper{
+    perspective:2500px;
+    z-index:2;
+}
+
+.card{
+    width:370px;
+    height:590px;
+    position:relative;
+    transform-style:preserve-3d;
+}
+
+/* FRONT COVER */
+
+.front{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:35px;
+    overflow:hidden;
+    background:
+    linear-gradient(145deg,#ff5e97,#ff89b2,#ffc7db);
+    box-shadow:
+    0 20px 45px rgba(255,105,180,0.35);
+    transform-origin:left;
+    transition:1.2s ease;
+    z-index:5;
+    cursor:pointer;
+}
+
+.card.open .front{
+    transform:rotateY(-145deg);
+}
+
+.front::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    top:-80px;
+    right:-80px;
+}
+
+.front::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    bottom:-50px;
+    left:-50px;
+}
+
+.front-content{
+    position:relative;
+    z-index:2;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.ring{
+    font-size:60px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+.front h1{
+    font-family:'Great Vibes',cursive;
+    color:#fff;
+    font-size:64px;
+    margin-top:15px;
+}
+
+.front p{
+    margin-top:18px;
+    color:#fff;
+    line-height:1.9;
+    font-size:16px;
+}
+
+.open-btn{
+    margin-top:28px;
+    background:#fff;
+    color:#ff4f87;
+    padding:14px 32px;
+    border-radius:50px;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+.tap-again{
+    margin-top:18px;
+    color:#fff;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* INSIDE */
+
+.inside{
+    position:absolute;
+    inset:0;
+    background:#fff;
+    border-radius:35px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+    scrollbar-width:none;
+}
+
+.inside::-webkit-scrollbar{
+    display:none;
+}
+
+/* CAROUSEL */
+
+.carousel{
+    position:relative;
+    width:90%;
+    height:200px;
+    overflow:hidden;
+    border-radius:28px 28px 28px 28px;
+    box-shadow:0 10px 30px rgba(255,105,180,0.22);
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slides{
+    display:flex;
+    width:100%;
+    height:100%;
+    animation:slide 20s infinite;
+}
+
+.slides img{
+    min-width:100%;
+    height:200px;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+@keyframes slide {
+
+    0%,15%{
+        transform:translateX(0%);
+    }
+
+    20%,35%{
+        transform:translateX(-100%);
+    }
+
+    40%,55%{
+        transform:translateX(-200%);
+    }
+
+    60%,75%{
+        transform:translateX(-300%);
+    }
+
+    80%,95%{
+        transform:translateX(-400%);
+    }
+
+    100%{
+        transform:translateX(0%);
+    }
+
+}
+
+/* CONTENT */
+
+.content{
+    padding:25px;
+    text-align:center;
+}
+
+.content h2{
+    color:#ff4f87;
+    font-size:30px;
+    margin-bottom:14px;
+}
+
+.content p{
+    color:#6b4c59;
+    font-size:15px;
+    line-height:1.9;
+}
+
+/* SPOTIFY */
+
+.spotify{
+    margin-top:22px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* GALLERY */
+
+.gallery-title{
+    margin-top:30px;
+    color:#ff4f87;
+    font-size:24px;
+}
+
+.gallery{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.gallery img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.4s;
+    box-shadow:0 8px 20px rgba(255,105,180,0.15);
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* DATE BUTTON */
+
+.date-btn{
+    margin-top:28px;
+    display:inline-block;
+    text-decoration:none;
+    background:
+    linear-gradient(135deg,#ff4f87,#ff8fb1);
+    color:#fff;
+    padding:15px 34px;
+    border-radius:50px;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(255,105,180,0.3);
+    transition:0.4s;
+}
+
+.date-btn:hover{
+    transform:translateY(-5px);
+}
+
+.footer{
+    margin-top:18px;
+    color:#9b4b6b;
+    font-size:14px;
+    line-height:1.8;
+    padding-bottom:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:420px){
+
+    .card{
+        width:100%;
+        max-width:350px;
+        height:590px;
+    }
+
+    .front h1{
+        font-size:56px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS -->
+
+<div class="hearts">
+    <span>❤</span>
+    <span>💖</span>
+    <span>💕</span>
+    <span>💍</span>
+    <span>❤</span>
+</div>
+
+<div class="wrapper">
+    <div class="card" id="card">
+        <!-- FRONT -->
+        <div class="front" onclick="toggleCard()">
+            <div class="front-content">
+                <div class="ring">😽</div>
+                <h1>
+                    For My Love
+                </h1>
+                <p>
+                    A tiny romantic surprise  
+                    made only for the prettiest girl ❤️
+                </p>
+                <div class="open-btn">
+                    See what's in my 💝
+                </div>
+<!--                <div class="tap-again">
+                    Tap again to close ❤️
+                </div>
+-->
+            </div>
+        </div>
+
+        <!-- INSIDE -->
+        <div class="inside">
+            <!-- TOP CAROUSEL -->
+            <div class="carousel">
+                <div class="slides">
+                    <!-- Replace With Your Images -->
+                    <!--<video autoplay muted loop playsinline controls>
+                            <source src="https://drive.google.com/uc?export=download&id=1NenzHtXlrGfgpGfzJYGNfF0FS9ppzOgR" type="video/mp4">
+                        </video> -->
+                    <img src="https://lh3.googleusercontent.com/d/1yMgF7VyrYYMGhAbpgac9OJNQ2ZCQPjwA">
+                    <img src="https://lh3.googleusercontent.com/d/17yAjsbZp7523xqs7-uU7RBpauVncC-Uu">
+                    <img src="https://lh3.googleusercontent.com/d/1Bnc3E-9nRxV4HimJkm7DsoxN3eTff34t">
+                    <img src="https://lh3.googleusercontent.com/d/1CRIfODgYDX_3T4CLJxVrHEOTDAA3JlrU">
+                    <img src="https://lh3.googleusercontent.com/d/1PSf7qwrTAQyzvt7yu7n_6YRJakJrwXEb">
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+
+            <div class="content">
+                <h2> My Beautiful Sweetheart ❤️ </h2>
+                <p>
+                    You are my calm, my happiness,
+                    and honestly… my favorite person ever ✨
+                    You are the softest chapter of my life,
+                    the calm in my chaos,
+                    and the reason my heart smiles so much lately 💖
+                    <br><br>
+                    Every future dream feels complete
+                    when it has your hand in mine 💕
+                </p>
+
+                <!-- SPOTIFY -->
+
+            <!-- Spotify Player -->
+            <div class="spotify">
+                <iframe
+                    id="spotifyPlayer"
+                    src="https://open.spotify.com/embed/track/7cQ4hpefOEdNOIisv1kiwc?utm_source=generator&theme=0"
+                    width="100%"
+                    height="152"
+                    frameborder="0"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Hidden Autoplay Audio -->
+            <audio id="bgMusic" autoplay loop>
+                <source src="https://drive.google.com/uc?export=download&id=YOUR_AUDIO_FILE_ID" type="audio/mp3">
+            </audio>            
+
+                <!-- EXTRA GALLERY -->
+
+                <div class="gallery-title">
+                    Our Cute Moments 📸
+                </div>
+
+                <div class="gallery">
+                    <!-- Replace With Your Images -->
+                    <img src="https://lh3.googleusercontent.com/d/1NenzHtXlrGfgpGfzJYGNfF0FS9ppzOgR">
+                    <img src="https://lh3.googleusercontent.com/d/1KyBHlW9yYXmI7Tx-w1w74E-Zzg1W1UDb">
+                    <img src="https://lh3.googleusercontent.com/d/1Bnc3E-9nRxV4HimJkm7DsoxN3eTff34t">
+                    <img src="https://lh3.googleusercontent.com/d/1ESpSjBtFQUHUxNMvwOxUK-RaliKv4BWf">
+                    <img src="https://lh3.googleusercontent.com/d/1lE0KDEpEWo-9YmkONTWHbfzO_oHfAb13">
+                    <img src="https://lh3.googleusercontent.com/d/1rXil5UrigKDzp1IUX77c7iCOKRCMPzTU">
+                </div>
+
+                <!-- DATE BUTTON -->
+                <a href="#" class="date-btn"> I LOVE YOU MY BABY🌹</a>
+                <div class="footer">
+                I miss you more than words can explain, jaan ❤️
+                My day feels incomplete without thinking about you 💫
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+let isOpen = false;
+
+const originalSpotifyURL =
+"https://open.spotify.com/embed/track/7cQ4hpefOEdNOIisv1kiwc?utm_source=generator&theme=0";
+
+// AUDIO
+const audio = new Audio(
+"https://drive.google.com/uc?export=open&id=1vOO8yaZWJFRCiJchjdJ87w_2Fg8JiXQp"
+);
+
+audio.loop = true;
+audio.volume = 1;
+
+function toggleCard(){
+
+    const card = document.getElementById("card");
+    const player = document.getElementById("spotifyPlayer");
+
+    if(!isOpen){
+
+        // OPEN CARD
+        card.classList.add("open");
+
+        // KEEP SPOTIFY VISIBLE
+        player.src = originalSpotifyURL;
+
+        // PLAY AUDIO
+        audio.play()
+        .then(() => {
+            console.log("Audio Playing");
+        })
+        .catch((err) => {
+            console.log("Autoplay blocked:", err);
+        });
+
+        isOpen = true;
+
+    }else{
+
+        // CLOSE CARD
+        card.classList.remove("open");
+
+        // STOP AUDIO
+        audio.pause();
+        audio.currentTime = 0;
+
+        isOpen = false;
+    }
+}
+</script>
+
+</body>
+</html>
