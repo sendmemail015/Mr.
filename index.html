@@ -6,7 +6,7 @@
 
 <title>To My Beautiful Fiancée ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
@@ -26,14 +26,14 @@ body{
     justify-content:center;
     align-items:center;
     background:
-    linear-gradient(135deg,#fff0f5,#ffe4ec,#ffd6e7);
-    font-family:'Poppins',sans-serif;
+    linear-gradient(135deg, #fef5f7 0%, #fff0f5 50%, #ffe4ec 100%);
+    font-family:'Montserrat',sans-serif;
     overflow-x:hidden;
     padding:20px;
     position:relative;
 }
 
-/* FLOATING HEARTS */
+/* FLOATING ROSE PETALS & HEARTS */
 
 .hearts{
     position:fixed;
@@ -46,47 +46,50 @@ body{
 .hearts span{
     position:absolute;
     bottom:-100px;
-    color:rgba(255,105,180,0.22);
     font-size:24px;
-    animation:float 12s linear infinite;
+    animation:float 15s linear infinite;
+    opacity:0;
 }
 
-.hearts span:nth-child(1){left:10%;animation-delay:0s;}
-.hearts span:nth-child(2){left:30%;animation-delay:3s;}
-.hearts span:nth-child(3){left:50%;animation-delay:1s;}
-.hearts span:nth-child(4){left:70%;animation-delay:4s;}
-.hearts span:nth-child(5){left:90%;animation-delay:2s;}
+.hearts span:nth-child(1){left:8%;animation-delay:0s; font-size:28px;}
+.hearts span:nth-child(2){left:25%;animation-delay:3s; font-size:20px;}
+.hearts span:nth-child(3){left:50%;animation-delay:1.5s; font-size:26px;}
+.hearts span:nth-child(4){left:75%;animation-delay:4.5s; font-size:22px;}
+.hearts span:nth-child(5){left:90%;animation-delay:2s; font-size:24px;}
 
 @keyframes float{
-
     0%{
-        transform:translateY(0) scale(0.7);
+        transform:translateY(0) rotate(0deg) scale(0.6);
         opacity:0;
     }
-
-    20%{
-        opacity:1;
+    10%{
+        opacity:0.6;
     }
-
+    50%{
+        opacity:0.8;
+    }
+    90%{
+        opacity:0.3;
+    }
     100%{
-        transform:translateY(-120vh) scale(1.5);
+        transform:translateY(-130vh) rotate(360deg) scale(1.2);
         opacity:0;
     }
-
 }
 
 /* CARD */
 
 .wrapper{
-    perspective:2500px;
+    perspective:3000px;
     z-index:2;
 }
 
 .card{
-    width:370px;
-    height:590px;
+    width:400px;
+    height:620px;
     position:relative;
     transform-style:preserve-3d;
+    filter: drop-shadow(0 30px 60px rgba(255,105,180,0.25));
 }
 
 /* FRONT COVER */
@@ -95,42 +98,47 @@ body{
     position:absolute;
     width:100%;
     height:100%;
-    border-radius:35px;
+    border-radius:45px;
     overflow:hidden;
     background:
-    linear-gradient(145deg,#ff5e97,#ff89b2,#ffc7db);
-    box-shadow:
-    0 20px 45px rgba(255,105,180,0.35);
+    linear-gradient(145deg, #ff6b9d 0%, #ff85b3 50%, #ffb3d9 100%);
     transform-origin:left;
-    transition:1.2s ease;
+    transition:1.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index:5;
     cursor:pointer;
-}
-
-.card.open .front{
-    transform:rotateY(-145deg);
+    position:relative;
 }
 
 .front::before{
     content:"";
     position:absolute;
-    width:260px;
-    height:260px;
+    width:300px;
+    height:300px;
     border-radius:50%;
-    background:rgba(255,255,255,0.12);
-    top:-80px;
-    right:-80px;
+    background:rgba(255,255,255,0.15);
+    top:-100px;
+    right:-100px;
+    animation: subtle-glow 4s ease-in-out infinite;
 }
 
 .front::after{
     content:"";
     position:absolute;
-    width:180px;
-    height:180px;
+    width:200px;
+    height:200px;
     border-radius:50%;
     background:rgba(255,255,255,0.08);
-    bottom:-50px;
-    left:-50px;
+    bottom:-60px;
+    left:-60px;
+}
+
+@keyframes subtle-glow{
+    0%, 100%{ transform:scale(1); }
+    50%{ transform:scale(1.1); }
+}
+
+.card.open .front{
+    transform:rotateY(-160deg);
 }
 
 .front-content{
@@ -142,59 +150,65 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:30px;
+    padding:40px;
+    gap:20px;
 }
 
 .ring{
-    font-size:60px;
-    animation:pulse 2s infinite;
+    font-size:80px;
+    animation:heartbeat 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@keyframes pulse{
-
-    0%{
+@keyframes heartbeat{
+    0%, 100%{
         transform:scale(1);
     }
-
+    25%{
+        transform:scale(1.15);
+    }
     50%{
-        transform:scale(1.12);
-    }
-
-    100%{
         transform:scale(1);
     }
-
 }
 
 .front h1{
-    font-family:'Great Vibes',cursive;
+    font-family:'Cormorant Garamond',serif;
     color:#fff;
-    font-size:64px;
-    margin-top:15px;
+    font-size:72px;
+    font-weight:400;
+    letter-spacing:2px;
+    line-height:1.1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .front p{
-    margin-top:18px;
     color:#fff;
-    line-height:1.9;
+    line-height:1.8;
     font-size:16px;
+    font-weight:300;
+    letter-spacing:0.5px;
+    max-width:280px;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.08);
 }
 
 .open-btn{
-    margin-top:28px;
+    margin-top:20px;
     background:#fff;
-    color:#ff4f87;
-    padding:14px 32px;
+    color:#ff6b9d;
+    padding:16px 40px;
     border-radius:50px;
     font-weight:600;
-    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    border:none;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    font-size:15px;
+    letter-spacing:0.5px;
 }
 
-.tap-again{
-    margin-top:18px;
-    color:#fff;
-    font-size:14px;
-    opacity:0.9;
+.open-btn:hover{
+    transform:translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
 }
 
 /* INSIDE */
@@ -202,8 +216,8 @@ body{
 .inside{
     position:absolute;
     inset:0;
-    background:#fff;
-    border-radius:35px;
+    background:#fefbfc;
+    border-radius:45px;
     overflow-y:auto;
     overflow-x:hidden;
     box-shadow:0 15px 40px rgba(0,0,0,0.12);
@@ -218,12 +232,12 @@ body{
 
 .carousel{
     position:relative;
-    width:90%;
-    height:200px;
+    width:92%;
+    height:220px;
     overflow:hidden;
-    border-radius:28px 28px 28px 28px;
-    box-shadow:0 10px 30px rgba(255,105,180,0.22);
-    margin: 15px auto;
+    border-radius:32px;
+    box-shadow:0 15px 40px rgba(255,105,180,0.18);
+    margin: 20px auto 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,192 +247,202 @@ body{
     display:flex;
     width:100%;
     height:100%;
-    animation:slide 20s infinite;
+    animation:slide 22s infinite;
 }
 
 .slides img{
     min-width:100%;
-    height:200px;
+    height:220px;
     object-fit:cover;
     flex-shrink:0;
 }
 
 @keyframes slide {
-
-    0%,15%{
+    0%,12%{
         transform:translateX(0%);
     }
-
-    20%,35%{
+    18%,30%{
         transform:translateX(-100%);
     }
-
-    40%,55%{
+    36%,48%{
         transform:translateX(-200%);
     }
-
-    60%,75%{
+    54%,66%{
         transform:translateX(-300%);
     }
-
-    80%,95%{
+    72%,84%{
         transform:translateX(-400%);
     }
-
     100%{
         transform:translateX(0%);
     }
-
 }
 
 /* CONTENT */
 
 .content{
-    padding:25px;
+    padding:40px 30px;
     text-align:center;
 }
 
 .content h2{
-    color:#ff4f87;
-    font-size:30px;
-    margin-bottom:14px;
+    color:#d63384;
+    font-size:32px;
+    margin-bottom:8px;
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    letter-spacing:1px;
+}
+
+.divider{
+    width:60px;
+    height:2px;
+    background:linear-gradient(90deg, transparent, #ff6b9d, transparent);
+    margin:15px auto;
 }
 
 .content p{
-    color:#6b4c59;
-    font-size:15px;
-    line-height:1.9;
+    color:#5a4858;
+    font-size:16px;
+    line-height:2;
+    margin-bottom:22px;
+    font-weight:300;
+    letter-spacing:0.3px;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.content h3{
+    font-size:28px;
+    margin-top:25px;
+    margin-bottom:15px;
+    color:#ff6b9d;
+    letter-spacing:2px;
+    font-weight:600;
+    font-family:'Montserrat',sans-serif;
 }
 
 /* SPOTIFY */
 
 .spotify{
-    margin-top:22px;
-    border-radius:20px;
+    margin-top:25px;
+    border-radius:24px;
     overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    box-shadow:0 8px 24px rgba(255,105,180,0.15);
 }
 
 /* GALLERY */
 
 .gallery-title{
-    margin-top:30px;
-    color:#ff4f87;
-    font-size:24px;
+    margin-top:35px;
+    color:#d63384;
+    font-size:26px;
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    letter-spacing:1px;
 }
 
 .gallery{
     margin-top:18px;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:14px;
+    gap:16px;
+    padding:0 5px;
 }
 
 .gallery img{
     width:100%;
-    height:170px;
+    height:180px;
     object-fit:cover;
-    border-radius:20px;
-    transition:0.4s;
-    box-shadow:0 8px 20px rgba(255,105,180,0.15);
+    border-radius:24px;
+    transition:0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:0 10px 28px rgba(255,105,180,0.12);
+    cursor:pointer;
 }
 
 .gallery img:hover{
-    transform:scale(1.05);
+    transform:scale(1.08) translateY(-5px);
+    box-shadow:0 15px 40px rgba(255,105,180,0.22);
 }
 
 /* DATE BUTTON */
 
 .date-btn{
-    margin-top:28px;
+    margin-top:32px;
     display:inline-block;
     text-decoration:none;
     background:
-    linear-gradient(135deg,#ff4f87,#ff8fb1);
+    linear-gradient(135deg,#ff6b9d,#ff89b2);
     color:#fff;
-    padding:15px 34px;
+    padding:16px 42px;
     border-radius:50px;
     font-weight:600;
-    box-shadow:0 10px 25px rgba(255,105,180,0.3);
-    transition:0.4s;
+    box-shadow:0 12px 30px rgba(255,105,180,0.28);
+    transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size:15px;
+    letter-spacing:0.5px;
+    border:none;
+    cursor:pointer;
 }
 
 .date-btn:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
+    box-shadow:0 18px 42px rgba(255,105,180,0.35);
 }
 
 .footer{
-    margin-top:18px;
-    color:#9b4b6b;
-    font-size:14px;
-    line-height:1.8;
-    padding-bottom:20px;
+    margin-top:20px;
+    color:#9b5a7d;
+    font-size:15px;
+    line-height:1.9;
+    padding-bottom:30px;
+    font-weight:300;
+    letter-spacing:0.3px;
+    font-family:'Cormorant Garamond',serif;
 }
 
 /* MOBILE */
 
 @media(max-width:420px){
-
     .card{
         width:100%;
-        max-width:350px;
-        height:590px;
+        max-width:360px;
+        height:620px;
     }
 
     .front h1{
-        font-size:56px;
+        font-size:62px;
     }
 
+    .content h2{
+        font-size:28px;
+    }
 }
 
-.love-message-box{
-    max-width:600px;
-    margin:auto;
-    padding:35px 30px;
-    background:#111;
-    border:2px solid #d4af37;
-    border-radius:20px;
-    text-align:center;
-    color:#f5d67b;
-    font-family:'Poppins', sans-serif;
-    line-height:1.9;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+/* SPARKLE EFFECT */
+
+@keyframes sparkle {
+    0%, 100% { opacity:0; transform:scale(0); }
+    50% { opacity:1; transform:scale(1); }
 }
 
-.love-message-box h2{
-    font-size:38px;
-    margin-bottom:25px;
-    color:#ffd700;
-    font-weight:700;
+.sparkle {
+    position:absolute;
+    pointer-events:none;
 }
 
-.love-message-box p{
-    font-size:18px;
-    margin-bottom:28px;
-    color:#f8e7a1;
-}
-
-.love-message-box h3{
-    font-size:30px;
-    margin-top:20px;
-    color:#fff;
-    letter-spacing:1px;
-    font-weight:700;
-}
-    
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING HEARTS -->
+<!-- FLOATING ROMANTIC ELEMENTS -->
 
 <div class="hearts">
-    <span>❤</span>
     <span>💖</span>
+    <span>✨</span>
     <span>💕</span>
-    <span>💍</span>
-    <span>❤</span>
+    <span>🌹</span>
+    <span>❤️</span>
 </div>
 
 <div class="wrapper">
@@ -426,21 +450,12 @@ body{
         <!-- FRONT -->
         <div class="front" onclick="toggleCard()">
             <div class="front-content">
-                <div class="ring">😽</div>
-                <h1>
-                    For My Love
-                </h1>
-                <p>
-                    A tiny romantic surprise  
-                    made only for the prettiest girl ❤️
-                </p>
-                <div class="open-btn">
-                    See what's in my 💝
-                </div>
-<!--                <div class="tap-again">
-                    Tap again to close ❤️
-                </div>
--->
+                <div class="ring">💍</div>
+                <h1>For My Love</h1>
+                <p>A timeless romantic moment<br>created just for you</p>
+                <button class="open-btn" onclick="toggleCard(); return false;">
+                    Discover My Heart 💝
+                </button>
             </div>
         </div>
 
@@ -449,10 +464,6 @@ body{
             <!-- TOP CAROUSEL -->
             <div class="carousel">
                 <div class="slides">
-                    <!-- Replace With Your Images -->
-                    <!--<video autoplay muted loop playsinline controls>
-                            <source src="https://drive.google.com/uc?export=download&id=1NenzHtXlrGfgpGfzJYGNfF0FS9ppzOgR" type="video/mp4">
-                        </video> -->
                     <img src="https://lh3.googleusercontent.com/d/1yMgF7VyrYYMGhAbpgac9OJNQ2ZCQPjwA">
                     <img src="https://lh3.googleusercontent.com/d/17yAjsbZp7523xqs7-uU7RBpauVncC-Uu">
                     <img src="https://lh3.googleusercontent.com/d/1Bnc3E-9nRxV4HimJkm7DsoxN3eTff34t">
@@ -461,57 +472,62 @@ body{
                 </div>
             </div>
 
-            <!-- CONTENT content love-message-box -->
+            <!-- CONTENT -->
 
             <div class="content">
-                <h2> My Beautiful Sweetheart ❤️ </h2>
+                <h2>My Beautiful Sweetheart</h2>
+                <div class="divider"></div>
+                
                 <p>
                     Meeting you was fate,<br>
                     becoming your husband was a choice,<br>
-                    but falling in love with you was beyond my control.
+                    but falling in love with you<br>
+                    was completely beyond my control.
                 </p>
+
                 <p>
-                    In you, I found the love of my life.<br>
-                    You were and always will be the best thing<br>
-                    that ever happened to me.
+                    In every moment with you,<br>
+                    I find the love of my life.<br>
+                    You were and always will be<br>
+                    the most beautiful thing that ever happened to me.
                 </p>
+
                 <p>
-                    If I could give you one thing in life,<br>
-                    I would give you the ability to see yourself through my eyes.<br>
+                    If I could give you one gift,<br>
+                    I would give you the ability<br>
+                    to see yourself through my eyes.<br>
                     Only then would you realize<br>
-                    how special you are to me.
+                    how eternally precious you are to me.
                 </p>            
-                <h3>I LOVE YOU FOREVER & ALWAYS 💖</h3>
+
+                <h3>I LOVE YOU FOREVER</h3>
 
                 <!-- SPOTIFY -->
+                <div class="spotify">
+                    <iframe
+                        id="spotifyPlayer"
+                        src="https://open.spotify.com/embed/track/7cQ4hpefOEdNOIisv1kiwc?utm_source=generator&theme=0"
+                        width="100%"
+                        height="152"
+                        frameborder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+                </div>
 
-            <!-- Spotify Player -->
-            <div class="spotify">
-                <iframe
-                    id="spotifyPlayer"
-                    src="https://open.spotify.com/embed/track/7cQ4hpefOEdNOIisv1kiwc?utm_source=generator&theme=0"
-                    width="100%"
-                    height="152"
-                    frameborder="0"
-                    allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy">
-                </iframe>
-            </div>
+                <!-- BACKGROUND AUDIO -->
+                <audio id="bgMusic" loop>
+                    <source src="https://archive.org/download/tu-chahiye_mr/Tu_Chahiye.mp3" type="audio/mpeg">
+                </audio>            
 
-            <!-- Hidden Autoplay Audio -->
-            <audio id="bgMusic" autoplay loop>
-                <source src="https://drive.google.com/uc?export=download&id=YOUR_AUDIO_FILE_ID" type="audio/mp3">
-            </audio>            
-
-                <!-- EXTRA GALLERY -->
+                <!-- GALLERY -->
 
                 <div class="gallery-title">
-                    Our Cute Moments 📸
+                    Our Precious Moments
                 </div>
 
                 <div class="gallery">
-                    <!-- Replace With Your Images -->
                     <img src="https://lh3.googleusercontent.com/d/1NenzHtXlrGfgpGfzJYGNfF0FS9ppzOgR">
                     <img src="https://lh3.googleusercontent.com/d/1KyBHlW9yYXmI7Tx-w1w74E-Zzg1W1UDb">
                     <img src="https://lh3.googleusercontent.com/d/1Bnc3E-9nRxV4HimJkm7DsoxN3eTff34t">
@@ -520,11 +536,15 @@ body{
                     <img src="https://lh3.googleusercontent.com/d/1rXil5UrigKDzp1IUX77c7iCOKRCMPzTU">
                 </div>
 
-                <!-- DATE BUTTON -->
-                <a href="#" class="date-btn"> I LOVE YOU MY BABY🌹</a>
+                <!-- BUTTON -->
+                <button class="date-btn" onclick="handleLoveClick()">
+                    I LOVE YOU MY BABY 🌹
+                </button>
+
                 <div class="footer">
-                I miss you more than words can explain, jaan ❤️
-                My day feels incomplete without thinking about you 💫
+                    I miss you more than words could ever express, jaan ❤️<br>
+                    Every moment without you feels incomplete<br>
+                    You are my forever love ✨
                 </div>
             </div>
         </div>
@@ -541,48 +561,62 @@ const originalSpotifyURL =
 
 // AUDIO
 const audio = new Audio(
-"https://drive.google.com/uc?export=open&id=1vOO8yaZWJFRCiJchjdJ87w_2Fg8JiXQp"
+"https://archive.org/download/tu-chahiye_mr/Tu_Chahiye.mp3"
 );
 
 audio.loop = true;
-audio.volume = 1;
+audio.volume = 0.5;
 
 function toggleCard(){
-
     const card = document.getElementById("card");
     const player = document.getElementById("spotifyPlayer");
 
     if(!isOpen){
-
-        // OPEN CARD
         card.classList.add("open");
-
-        // KEEP SPOTIFY VISIBLE
         player.src = originalSpotifyURL;
-
-        // PLAY AUDIO
+        
         audio.play()
         .then(() => {
-            console.log("Audio Playing");
+            console.log("✅ Audio Playing!");
         })
         .catch((err) => {
-            console.log("Autoplay blocked:", err);
+            console.log("⚠️ Autoplay blocked");
         });
 
         isOpen = true;
-
     }else{
-
-        // CLOSE CARD
         card.classList.remove("open");
-
-        // STOP AUDIO
         audio.pause();
         audio.currentTime = 0;
-
         isOpen = false;
     }
 }
+
+function handleLoveClick() {
+    createHeartAnimation();
+}
+
+function createHeartAnimation() {
+    const colors = ['❤️', '💖', '💕', '💗', '💝'];
+    
+    for(let i = 0; i < 12; i++) {
+        const heart = document.createElement('span');
+        heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.cssText = `
+            position:fixed;
+            left:${Math.random() * 100}%;
+            top:50%;
+            font-size:${20 + Math.random() * 30}px;
+            animation:float 3s ease-out forwards;
+            z-index:999;
+            pointer-events:none;
+        `;
+        document.body.appendChild(heart);
+        
+        setTimeout(() => heart.remove(), 3000);
+    }
+}
+
 </script>
 
 </body>
